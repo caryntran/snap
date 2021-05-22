@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)https://snap.berkeley.edu/credits -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="snap-cloud-domain" location="https://snap.berkeley.edu:443">
+        
+        <title>Snap! Build Your Own Blocks</title>
+        <meta name="description" content="The Snap! social platform">
+        <meta name="author" content="Bernat Romagosa">
+        <meta name="snap-cloud-domain" location="https://snap.berkeley.edu">
+        <link rel="icon" href="https://snap.berkeley.edu/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- External libs, both stylesheets and JS -->
+        <link rel="stylesheet" href="./snappatch_files/reset.css">
+        <link rel="stylesheet" href="./snappatch_files/pure-min.css">
+        <link rel="stylesheet" href="./snappatch_files/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" href="./snappatch_files/custom-alert.css">
+        <script type="text/javascript" src="./snappatch_files/FileSaver.min.js"></script>
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="./snappatch_files/elements.css">
+        <link rel="stylesheet" href="./snappatch_files/classes.css">
+        <link rel="stylesheet" href="./snappatch_files/layout.css">
+        <!-- JS -->
+        <script type="text/javascript" src="./snappatch_files/locale.js"></script>
+        <script type="text/javascript" src="./snappatch_files/base.js"></script>
+        <script type="text/javascript" src="./snappatch_files/cloud.js"></script>
+        <script type="text/javascript">SnapCloud = new Cloud();</script>
+        <script type="text/javascript" src="./snappatch_files/sha512.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript" src="./snappatch_files/custom-alert.min.js"></script>
+        <script>new customAlert();</script><div id="customalert-overlay" class="customalert-overlay"></div><div id="customalert" class="customalert customalert-alert"><div class="header"></div><div class="body"></div><div class="footer"><button class="pure-button btn btn-primary custom-alert button-done" onclick="window.customalert.done()"></button></div></div><div id="customconfirm-overlay" class="customalert-overlay"></div><div id="customconfirm" class="customalert customalert-confirm"><div class="header"></div><div class="body"></div><div class="footer"><button class="pure-button btn btn-danger button-cancel" onclick="window.customconfirm.cancel()"></button><button class="pure-button btn btn-success custom-alert button-done" onclick="window.customconfirm.done()"></button></div></div>
+        <div id="loading" hidden="">
+            <i class="fas fa-spinner fa-spin fa-3x" aria-hidden="true"></i>
+        </div>
+<nav id="top-bar">
+    <div class="pure-menu-horizontal pure-menu">
+        <ul class="pure-g pure-menu-list">
+            <a class="pure-u-1-12" href="https://snap.berkeley.edu/" aria-label="Snap! home page">
+                <img src="./snappatch_files/topbar-logo.png" class="logo clickable">
+            </a>
+            <span class="pure-u-5-12">
+                <li class="pure-menu-item">
+                    <a localizable="" class="pure-menu-link run" target="_blank" href="https://snap.berkeley.edu/snap/snap.html">Run Snap<em>!</em></a>
+                </li>
+                <li class="pure-menu-item">
+                    <a localizable="" class="pure-menu-link explore" href="https://snap.berkeley.edu/explore">Explore</a>
+                </li>
+                <li class="pure-menu-item">
+                    <a localizable="" class="pure-menu-link forum" href="https://forum.snap.berkeley.edu/">Forum</a>
+                </li>
+                <!--   =======   Snap!Con   =======
+                <li class="pure-menu-item">
+                    <a localizable class="pure-menu-link" target="_blank"
+                    href="https://www.snapcon.org">Snap<em>!</em>Con</a>
+                </li>
+                -->
+            </span>
+            <i class="pure-u-1-24"></i>
+            <div class="search pure-u-1-6">
+                <form action="https://snap.berkeley.edu/search">
+                    <input type="text" name="query">
+                    <i class="fas fa-search"></i>
+                </form>
+            </div>
+            <i class="pure-u-1-24"></i>
+            <li hidden="" class="join pure-menu-item pure-u-1-12">
+                <a localizable="" class="pure-menu-link" href="https://snap.berkeley.edu/sign_up">Join</a></li>
+            <li hidden="" class="sign-in pure-menu-item pure-u-1-12">
+                <a localizable="" class="pure-menu-link" href="https://snap.berkeley.edu/login">Log In</a></li>
+            <li class="pure-menu-item pure-u-1-6
+                pure-menu-has-children pure-menu-allow-hover user-menu">
+                <a id="menuLink1" class="pure-menu-link visitor clickable">User</a>
+                <ul class="pure-menu-children">
+                    <li class="pure-menu-item">
+                        <a localizable="" class="pure-menu-link my-projects" href="https://snap.berkeley.edu/my_projects">My Projects</a></li>
+                    <li class="pure-menu-item">
+                        <a localizable="" class="pure-menu-link my-collections" href="https://snap.berkeley.edu/my_collections">My Collections</a></li>
+                    <li class="pure-menu-item">
+                        <a localizable="" class="pure-menu-link my-public-projects" href="https://snap.berkeley.edu/user?user=test">My Public Page</a></li>
+                    <li class="pure-menu-item">
+                        <a localizable="" class="pure-menu-link my-profile" href="https://snap.berkeley.edu/profile">My Profile</a></li>
+                    <li hidden="true" class="pure-menu-item admin">
+                        <a localizable="" class="pure-menu-link" href="https://snap.berkeley.edu/admin">Administration</a></li>
+                    <hr>
+                    <li class="pure-menu-item">
+                        <a localizable="" class="pure-menu-link clickable" href="javascript:SnapCloud.logout(function () {
+                                sessionStorage.clear();
+                                location.href = &#39;index&#39;;
+                            });">Log Out</a></li>
+                </ul>
+            </li>
+            <li class="pure-menu-item pure-u-1-24 pure-menu-has-children
+                pure-menu-allow-hover language-select">
+                <a class="pure-menu-link clickable">
+                    <i class="fas fa-globe"></i>
+                </a>
+                <ul class="pure-menu-children languages">
+                    <a class="pure-menu-link clickable" onclick="localizer.setLanguage(&#39;es&#39;);">Castellano</a>
+                    <a class="pure-menu-link clickable" onclick="localizer.setLanguage(&#39;ca&#39;);">Català</a>
+                    <a class="pure-menu-link clickable" onclick="localizer.setLanguage(&#39;zh&#39;);">简体中文</a>
+                    <a class="pure-menu-link clickable" onclick="localizer.setLanguage(&#39;de&#39;);">Deutsch</a>
+                    <a class="pure-menu-link clickable" onclick="localizer.setLanguage(&#39;en&#39;);">English</a>
+                    <a class="pure-menu-link clickable" onclick="localizer.setLanguage(&#39;fr&#39;);">Français</a>
+                    <a class="pure-menu-link clickable" onclick="localizer.setLanguage(&#39;it&#39;);">Italiano</a>
+                    <a class="pure-menu-link clickable" onclick="localizer.setLanguage(&#39;pt&#39;);">Português</a>
+                    <a class="pure-menu-link clickable" onclick="localizer.setLanguage(&#39;tr&#39;);">Türkçe</a>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+        <div id="wrapper">
+<h1 localizable="">Snap Patch</h1>
+<h2>About</h2>
+<p>Snap<em>!</em> runs on <a href="https://github.com/jmoenig/morphic.js">MorphicJS</a> which uses Adobe Flash Player. Because Adobe Flash Player is officially deprecated and is going to be unusable as of May 30th, we have designed a workaround. Snap Patch is essentially an <a href="https://github.com/snap!/snappatch/main">open source</a> version of Adobe Flash Player designed to run Snap<em>!</em> and be compatible with most modern web browsers.</p>
+<p>© <span class="year">2021</span> by Jens Mönig and Brian Harvey.</p>
+
+<h3>Downloads</h3>
+<p>Snap Patch is currently only supported on Unix and OpenBSD x86 architectures. More versions will be released soon.</p>
+<p><a href="https://bit.ly/2QIBMPl">MacOS x86 Installer Direct Download</a></p>
+
+<h3>Note</h3>
+<p>Because Snap Patch is open source and the code is publicly available, we are unable to sign it. This means that MacOS High Sierra+ does not allow you to run the installer. You can solve this is System Preferences > Security & Privacy. </p>
+
+
+<!-- https://github.com/jellyassassin25/snap/blob/main/Snap_Patch_1.0.3.pkg?raw=true -->
+<script>
+    document.querySelectorAll('.year').forEach(function (each) {
+        each.innerText = (new Date()).getFullYear();
+    });
+</script>
+        </div>
+<div id="footer">
+    <div class="links pure-g">
+        <div class="pure-u-1-5">
+            <p></p><h4 localizable="">About</h4><p></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/about">About Snap<em>!</em></a></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/blog">Blog</a></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/credits">Credits</a></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/requirements">Technical Requirements</a></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/partners">Partners</a></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/source">Source Code</a></p>
+        </div>
+        <div class="pure-u-1-5">
+            <p></p><h4 localizable="">Learning</h4><p></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/examples">Examples</a></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/snap/help/SnapManual.pdf">Reference Manual</a></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/materials">Materials</a></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/bjc">The Beauty and Joy of Computing</a></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/research">Research</a></p>
+        </div>
+        <div class="pure-u-1-5">
+            <p></p><h4 localizable="">Tools</h4><p></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/offline">Offline Version</a></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/extensions">Extensions</a></p>
+            <p><a href="https://snap.berkeley.edu/snapp">Snapp<em>!</em></a></p>
+            <p><a href="https://snap.berkeley.edu/snapinator">Snapinator</a></p>
+            <p><a href="https://smerge.org/">Smerge</a></p>
+            <p><a href="https://snap.berkeley.edu/old_site/old-byob.html">BYOB (old Snap<em>!</em>)</a></p>
+        </div>
+        <div class="pure-u-1-5">
+            <p></p><h4 localizable="">Support</h4><p></p>
+            <p><a localizable="" target="_blank" href="https://forum.snap.berkeley.edu/">Forum</a></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/contact">Contact Us</a></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/mirrors">Mirrors</a></p>
+        </div>
+        <div class="pure-u-1-5">
+            <p></p><h4 localizable="">Legal</h4><p></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/dmca">DMCA</a></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/privacy">Privacy</a></p>
+            <p><a localizable="" href="https://snap.berkeley.edu/tos">Terms of Service</a></p>
+        </div>
+    </div>
+</div>
+    
+    <script>
+    SnapCloud.genericError = genericError;
+    document.querySelector('#top-bar .run').href = snapURL;
+    if (!sessionStorage.username) {
+        SnapCloud.initSession(
+            function (username, role) {
+                sessionStorage.username = username;
+                sessionStorage.role = role;
+                initForUsername(username);
+            }
+        );
+    } else {
+        initForUsername(sessionStorage.username);
+    }
+
+    function initForUsername (username) {
+        if (username) {
+            SnapCloud.username = username;
+            document.querySelector('li.join').hidden = true;
+            document.querySelector('li.sign-in').hidden = true;
+            document.querySelector('li.user-menu').hidden = false;
+            document.querySelector('a.my-public-projects').href =
+                'user?user=' + username;
+            if (hasAnyOfRoles(['admin', 'moderator', 'reviewer'])) {
+                document.querySelector('.admin').hidden = false;
+            }
+            fillVisitorFields();
+        } else {
+            document.querySelector('li.join').hidden = false;
+            document.querySelector('li.sign-in').hidden = false;
+            document.querySelector('li.user-menu').hidden = true;
+        }
+        fillUsernameFields();
+        fillVisitorFields();
+        doneLoading();
+    }
+
+    if (!sessionStorage.length) {
+        localStorage.setItem('getSessionStorage', Date.now());
+    };
+    window.addEventListener('storage', function(event) {
+        if (event.key == 'getSessionStorage') {
+            localStorage.setItem('sessionStorage',
+                JSON.stringify(sessionStorage));
+            localStorage.removeItem('sessionStorage');
+        } else if (event.key == 'sessionStorage' && !sessionStorage.length) {
+            var data = JSON.parse(event.newValue), value;
+            for (key in data) { sessionStorage.setItem(key, data[key]); }
+        }
+    });
+    </script>
+
+</body></html>
