@@ -1,3 +1,3 @@
 # snap
 
-Workaround for Snap
+Workaround for Snap v1.0.3
