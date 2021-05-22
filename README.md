@@ -1,1 +1,3 @@
 # snap
+
+Workaround for Snap
